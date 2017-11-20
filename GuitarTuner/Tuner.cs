@@ -112,6 +112,8 @@ namespace GuitarTuner
                 tuning = value;
             }
         }
+
+        internal MonitoringState MonitoringState { get => monitoringState; set => monitoringState = value; }
         #endregion
 
         #region Events
@@ -130,7 +132,7 @@ namespace GuitarTuner
             CurrentTone = new Tone(440, "A");
             Tuning = new Tuning();
             setStandardTuning();
-            monitoringState = MonitoringState.stopped;
+            MonitoringState = MonitoringState.stopped;
 
             Buffer.BufferFilled += OnBufferFilled;
 
@@ -170,9 +172,9 @@ namespace GuitarTuner
 
         public void beginMonitoring(int DEVICE_NUM)
         {
-            if (monitoringState == MonitoringState.monitoring) return;
+            if (MonitoringState == MonitoringState.monitoring) return;
 
-            monitoringState = MonitoringState.monitoring;
+            MonitoringState = MonitoringState.monitoring;
             WaveIn = new WaveIn();
             WaveIn.DeviceNumber = DEVICE_NUM;
             WaveIn.WaveFormat = format;
@@ -201,10 +203,10 @@ namespace GuitarTuner
 
         public void stopMonitoring()
         {
-            if (monitoringState == MonitoringState.monitoring)
+            if (MonitoringState == MonitoringState.monitoring)
             {
                 WaveIn.StopRecording();
-                monitoringState = MonitoringState.stopped;
+                MonitoringState = MonitoringState.stopped;
             }
         }
 

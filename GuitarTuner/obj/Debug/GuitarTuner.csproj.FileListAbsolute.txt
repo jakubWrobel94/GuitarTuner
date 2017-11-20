@@ -9,3 +9,4 @@ D:\cpp\vs\GuitarTuner\GuitarTuner\obj\Debug\GuitarTuner.csproj.GenerateResource.
 D:\cpp\vs\GuitarTuner\GuitarTuner\obj\Debug\GuitarTuner.exe
 D:\cpp\vs\GuitarTuner\GuitarTuner\obj\Debug\GuitarTuner.pdb
 D:\cpp\vs\GuitarTuner\GuitarTuner\obj\Debug\GuitarTuner.Form1.resources
+D:\cpp\vs\GuitarTuner\GuitarTuner\obj\Debug\GuitarTuner.csproj.CoreCompileInputs.cache

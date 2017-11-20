@@ -30,7 +30,7 @@ namespace GuitarTuner
 
         private void OnBuffer_BufferFilled(object o, EventArgs e)
         {
-            labelVolume.Text = (tuner.Volume).ToString("#.##");
+            labelVolume.Text = (tuner.Volume).ToString("#.##") + "dB";
             
             progressBarVolumeLevel.Value = (int)tuner.Volume + 90;
             
@@ -53,12 +53,16 @@ namespace GuitarTuner
 
         private void buttonStartMonitoring_Click(object sender, EventArgs e)
         {
-            tuner.beginMonitoring(comboBoxDevices.SelectedIndex);
+            if(tuner.MonitoringState != MonitoringState.monitoring)
+                tuner.beginMonitoring(comboBoxDevices.SelectedIndex);
         }
 
         private void buttonStopMonitoring_Click(object sender, EventArgs e)
         {
+            if (tuner.MonitoringState != MonitoringState.monitoring) return;
             tuner.stopMonitoring();
+            labelVolume.Text = "Volume";
+            progressBarVolumeLevel.Value = 0;
         }
 
         private void setTrackBarTones()
