@@ -73,17 +73,6 @@ namespace GuitarTuner
             DevicesBox.Enabled = STATE;
         }
 
-        public void AddDataToChart(float[] DATA)
-        {
-            CorrelationChart.Series[0].Points.DataBindY(DATA);
-            CorrelationChart.ChartAreas[0].AxisY.Maximum = 1;
-        }
-
-        public void RefreschChart()
-        {
-            CorrelationChart.Update();
-        }
-
         public void DrawStringsLabels(Tuning TUNING)
         {
             float pxPerHz = (float)(PitchBar.Height - 22) / (PitchBar.Maximum - PitchBar.Minimum);
